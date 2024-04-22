@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from "react-router-dom"
 import Web3 from "web3";
+import "./addMed.css"
 import SupplyChainABI from "./artifacts/SupplyChain.json"
 
 function AddMed() {
@@ -89,18 +90,23 @@ function AddMed() {
         }
     }
     return (
-        <div>
+        <div className='container'>
             <span><b>Current Account Address:</b> {currentaccount}</span>
-            <span onClick={redirect_to_home} className="btn btn-outline-danger btn-sm"> HOME</span>
+            
+            <span onClick={redirect_to_home} className="btn btn-outline-danger btn-sm btn-home"> HOME</span>
             <br />
-            <h5>Add Medicine Order:</h5>
+            <h4>Add products</h4>
             <form onSubmit={handlerSubmitMED}>
-                <input className="form-control-sm" type="text" onChange={handlerChangeNameMED} placeholder="Medicine Name" required />
-                <input className="form-control-sm" type="text" onChange={handlerChangeDesMED} placeholder="Medicine Description" required />
-                <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitMED}>Order</button>
+            <div className="form-group">
+                    <input className="form-control" type="text" value={MedName} onChange={handlerChangeNameMED} placeholder="Product Name" required />
+                </div>
+                <div className="form-group">
+                    <input className="form-control" type="text" value={MedDes} onChange={handlerChangeDesMED} placeholder="Product Description" required />
+                </div>
+                <button type="submit" className="btn btn-outline-success btn-sm btn-order">Order</button>
             </form>
             <br />
-            <h5>Ordered Medicines:</h5>
+            <h5>Ordered Products</h5>
             <table className="table table-bordered">
                 <thead>
                     <tr>
@@ -108,6 +114,7 @@ function AddMed() {
                         <th scope="col">Name</th>
                         <th scope="col">Description</th>
                         <th scope="col">Current Stage</th>
+                        
                     </tr>
                 </thead>
                 <tbody>

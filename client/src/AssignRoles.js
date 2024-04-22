@@ -183,126 +183,174 @@ function AssignRoles() {
 
 
     return (
-        <div>
-            <span><b>Current Account Address:</b> {currentaccount}</span>
-            <span onClick={redirect_to_home} className="btn btn-outline-danger btn-sm">HOME</span>
-            <h4>Raw Material Suppliers:</h4>
-            <form onSubmit={handlerSubmitRMS}>
-                <input className="form-control-sm" type="text" onChange={handlerChangeAddressRMS} placeholder="Ethereum Address" required />
-                <input className="form-control-sm" type="text" onChange={handlerChangeNameRMS} placeholder="Raw Material Supplier Name" required />
-                <input className="form-control-sm" type="text" onChange={handlerChangePlaceRMS} placeholder="Based In" required />
-                <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitRMS}>Register</button>
-            </form>
-            <table className="table table-sm">
-                <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Place</th>
-                        <th scope="col">Ethereum Address</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {Object.keys(RMS).map(function (key) {
-                        return (
-                            <tr key={key}>
-                                <td>{RMS[key].id}</td>
-                                <td>{RMS[key].name}</td>
-                                <td>{RMS[key].place}</td>
-                                <td>{RMS[key].addr}</td>
-                            </tr>
-                        )
-                    })}
-                </tbody>
-            </table>
-            <h4>Manufacturers:</h4>
-            <form onSubmit={handlerSubmitMAN}>
-                <input className="form-control-sm" type="text" onChange={handlerChangeAddressMAN} placeholder="Ethereum Address" required />
-                <input className="form-control-sm" type="text" onChange={handlerChangeNameMAN} placeholder="Manufacturer Name" required />
-                <input className="form-control-sm" type="text" onChange={handlerChangePlaceMAN} placeholder="Based In" required />
-                <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitMAN}>Register</button>
-            </form>
-            <table className="table table-sm">
-                <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Place</th>
-                        <th scope="col">Ethereum Address</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {Object.keys(MAN).map(function (key) {
-                        return (
-                            <tr key={key}>
-                                <td>{MAN[key].id}</td>
-                                <td>{MAN[key].name}</td>
-                                <td>{MAN[key].place}</td>
-                                <td>{MAN[key].addr}</td>
-                            </tr>
-                        )
-                    })}
-                </tbody>
-            </table>
-            <h4>Distributors:</h4>
-            <form onSubmit={handlerSubmitDIS}>
-                <input className="form-control-sm" type="text" onChange={handlerChangeAddressDIS} placeholder="Ethereum Address" required />
-                <input className="form-control-sm" type="text" onChange={handlerChangeNameDIS} placeholder="Distributor Name" required />
-                <input className="form-control-sm" type="text" onChange={handlerChangePlaceDIS} placeholder="Based In" required />
-                <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitDIS}>Register</button>
-            </form>
-            <table className="table table-sm">
-                <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Place</th>
-                        <th scope="col">Ethereum Address</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {Object.keys(DIS).map(function (key) {
-                        return (
-                            <tr key={key}>
-                                <td>{DIS[key].id}</td>
-                                <td>{DIS[key].name}</td>
-                                <td>{DIS[key].place}</td>
-                                <td>{DIS[key].addr}</td>
-                            </tr>
-                        )
-                    })}
-                </tbody>
-            </table>
-            <h4>Retailers:</h4>
-            <form onSubmit={handlerSubmitRET}>
-                <input className="form-control-sm" type="text" onChange={handlerChangeAddressRET} placeholder="Ethereum Address" required />
-                <input className="form-control-sm" type="text" onChange={handlerChangeNameRET} placeholder="Retailer Name" required />
-                <input className="form-control-sm" type="text" onChange={handlerChangePlaceRET} placeholder="Based In" required />
-                <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitRET}>Register</button>
-            </form>
-            <table className="table table-sm">
-                <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Place</th>
-                        <th scope="col">Ethereum Address</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {Object.keys(RET).map(function (key) {
-                        return (
-                            <tr key={key}>
-                                <td>{RET[key].id}</td>
-                                <td>{RET[key].name}</td>
-                                <td>{RET[key].place}</td>
-                                <td>{RET[key].addr}</td>
-                            </tr>
-                        )
-                    })}
-                </tbody>
-            </table>
+        <div className="container mt-5">
+        <div className="row">
+            <div className="col-md-12 text-right">
+                <span className="btn btn-outline-danger btn-sm" onClick={redirect_to_home}>HOME</span>
+            </div>
         </div>
+        <div className="row">
+            <div className="col-md-12">
+                <h4>Current Account Address: {currentaccount}</h4>
+            </div>
+        </div>
+        <div className="row mt-3">
+            <div className="col-md-12">
+                <h4>Raw Material Suppliers:</h4>
+                <form onSubmit={handlerSubmitRMS}>
+                    <div className="form-group">
+                        <input className="form-control" type="text" onChange={handlerChangeAddressRMS} placeholder="Ethereum Address" required />
+                    </div>
+                    <div className="form-group">
+                        <input className="form-control" type="text" onChange={handlerChangeNameRMS} placeholder="Raw Material Supplier Name" required />
+                    </div>
+                    <div className="form-group">
+                        <input className="form-control" type="text" onChange={handlerChangePlaceRMS} placeholder="Based In" required />
+                    </div>
+                    <button className="btn btn-outline-success btn-sm" type="submit">Register</button>
+                </form>
+                <table className="table mt-3">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Place</th>
+                            <th scope="col">Ethereum Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {Object.keys(RMS).map(function (key) {
+                            return (
+                                <tr key={key}>
+                                    <td>{RMS[key].id}</td>
+                                    <td>{RMS[key].name}</td>
+                                    <td>{RMS[key].place}</td>
+                                    <td>{RMS[key].addr}</td>
+                                </tr>
+                            )
+                        })}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div className="row mt-5">
+            <div className="col-md-12">
+                <h4>Manufacturers:</h4>
+                <form onSubmit={handlerSubmitMAN}>
+                    <div className="form-group">
+                        <input className="form-control" type="text" onChange={handlerChangeAddressMAN} placeholder="Ethereum Address" required />
+                    </div>
+                    <div className="form-group">
+                        <input className="form-control" type="text" onChange={handlerChangeNameMAN} placeholder="Manufacturer Name" required />
+                    </div>
+                    <div className="form-group">
+                        <input className="form-control" type="text" onChange={handlerChangePlaceMAN} placeholder="Based In" required />
+                    </div>
+                    <button className="btn btn-outline-success btn-sm" type="submit">Register</button>
+                </form>
+                <table className="table mt-3">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Place</th>
+                            <th scope="col">Ethereum Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {Object.keys(MAN).map(function (key) {
+                            return (
+                                <tr key={key}>
+                                    <td>{MAN[key].id}</td>
+                                    <td>{MAN[key].name}</td>
+                                    <td>{MAN[key].place}</td>
+                                    <td>{MAN[key].addr}</td>
+                                </tr>
+                            )
+                        })}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div className="row mt-5">
+            <div className="col-md-12">
+                <h4>Distributors:</h4>
+                <form onSubmit={handlerSubmitDIS}>
+                    <div className="form-group">
+                        <input className="form-control" type="text" onChange={handlerChangeAddressDIS} placeholder="Ethereum Address" required />
+                    </div>
+                    <div className="form-group">
+                        <input className="form-control" type="text" onChange={handlerChangeNameDIS} placeholder="Distributor Name" required />
+                    </div>
+                    <div className="form-group">
+                        <input className="form-control" type="text" onChange={handlerChangePlaceDIS} placeholder="Based In" required />
+                    </div>
+                    <button className="btn btn-outline-success btn-sm" type="submit">Register</button>
+                </form>
+                <table className="table mt-3">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Place</th>
+                            <th scope="col">Ethereum Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {Object.keys(DIS).map(function (key) {
+                            return (
+                                <tr key={key}>
+                                    <td>{DIS[key].id}</td>
+                                    <td>{DIS[key].name}</td>
+                                    <td>{DIS[key].place}</td>
+                                    <td>{DIS[key].addr}</td>
+                                </tr>
+                            )
+                        })}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div className="row mt-5">
+            <div className="col-md-12">
+                <h4>Retailers:</h4>
+                <form onSubmit={handlerSubmitRET}>
+                    <div className="form-group">
+                        <input className="form-control" type="text" onChange={handlerChangeAddressRET} placeholder="Ethereum Address" required />
+                    </div>
+                    <div className="form-group">
+                        <input className="form-control" type="text" onChange={handlerChangeNameRET} placeholder="Retailer Name" required />
+                    </div>
+                    <div className="form-group">
+                        <input className="form-control" type="text" onChange={handlerChangePlaceRET} placeholder="Based In" required />
+                    </div>
+                    <button className="btn btn-outline-success btn-sm" type="submit">Register</button>
+                </form>
+                <table className="table mt-3">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Place</th>
+                            <th scope="col">Ethereum Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {Object.keys(RET).map(function (key) {
+                            return (
+                                <tr key={key}>
+                                    <td>{RET[key].id}</td>
+                                    <td>{RET[key].name}</td>
+                                    <td>{RET[key].place}</td>
+                                    <td>{RET[key].addr}</td>
+                                </tr>
+                            )
+                        })}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
     )
 }
 

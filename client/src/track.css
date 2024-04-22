@@ -1,0 +1,41 @@
+.container {
+    margin-top: 20px;
+}
+
+.wait {
+    margin-top: 20%;
+    text-align: center;
+}
+
+.btn-home {
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+hr {
+    border: 0;
+    border-top: 2px solid #eee;
+}
+
+article {
+    margin: 10px;
+}
+
+.col-4 {
+    border: 2px solid #ccc;
+    padding: 10px;
+}
+
+.col-3 {
+    border: 2px solid #ccc;
+    padding: 10px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+select {
+    width: 200px;
+}

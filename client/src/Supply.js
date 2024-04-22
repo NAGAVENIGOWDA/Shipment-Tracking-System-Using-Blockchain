@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from "react-router-dom"
 import Web3 from "web3";
 import SupplyChainABI from "./artifacts/SupplyChain.json"
+import "./supply.css"
 
 function Supply() {
     const history = useHistory()
@@ -59,7 +60,7 @@ function Supply() {
     }
     if (loader) {
         return (
-            <div>
+            <div className="container">
                 <h1 className="wait">Loading...</h1>
             </div>
         )
@@ -132,15 +133,15 @@ function Supply() {
         }
     }
     return (
-        <div>
+        <div className='container'>
             <span><b>Current Account Address:</b> {currentaccount}</span>
-            <span onClick={redirect_to_home} className="btn btn-outline-danger btn-sm"> HOME</span>
+            <span onClick={redirect_to_home} className="btn btn-outline-danger btn-sm btn-home"> HOME</span>
             <h6><b>Supply Chain Flow:</b></h6>
-            <p>Medicine Order -&gt; Raw Material Supplier -&gt; Manufacturer -&gt; Distributor -&gt; Retailer -&gt; Consumer</p>
+            <p>Product Order -&gt; Raw Material Supplier -&gt; Manufacturer -&gt; Distributor -&gt; Retailer -&gt; Consumer</p>
             <table className="table table-sm table-dark">
                 <thead>
                     <tr>
-                        <th scope="col">Medicine ID</th>
+                        <th scope="col">Product ID</th>
                         <th scope="col">Name</th>
                         <th scope="col">Description</th>
                         <th scope="col">Current Processing Stage</th>
@@ -163,38 +164,38 @@ function Supply() {
                     })}
                 </tbody>
             </table>
-            <h5><b>Step 1: Supply Raw Materials</b>(Only a registered Raw Material Supplier can perform this step):-</h5>
+            <h5><b>Step 1: Supply Raw Materials</b></h5>
             <form onSubmit={handlerSubmitRMSsupply}>
-                <input className="form-control-sm" type="text" onChange={handlerChangeID} placeholder="Enter Medicine ID" required />
-                <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitRMSsupply}>Supply</button>
+                <input className="form-control-sm" type="text" onChange={handlerChangeID} placeholder="Enter Product ID" required />
+                <button className="btn btn-outline-success btn-sm btn-order" onSubmit={handlerSubmitRMSsupply}>Supply</button>
             </form>
             <hr />
             <br />
-            <h5><b>Step 2: Manufacture</b>(Only a registered Manufacturer can perform this step):-</h5>
+            <h5><b>Step 2: Manufacture</b></h5>
             <form onSubmit={handlerSubmitManufacturing}>
-                <input className="form-control-sm" type="text" onChange={handlerChangeID} placeholder="Enter Medicine ID" required />
-                <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitManufacturing}>Manufacture</button>
+                <input className="form-control-sm" type="text" onChange={handlerChangeID} placeholder="Enter Product ID" required />
+                <button className="btn btn-outline-success btn-sm btn-order" onSubmit={handlerSubmitManufacturing}>Manufacture</button>
             </form>
             <hr />
             <br />
-            <h5><b>Step 3: Distribute</b>(Only a registered Distributor can perform this step):-</h5>
+            <h5><b>Step 3: Distribute</b></h5>
             <form onSubmit={handlerSubmitDistribute}>
-                <input className="form-control-sm" type="text" onChange={handlerChangeID} placeholder="Enter Medicine ID" required />
-                <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitDistribute}>Distribute</button>
+                <input className="form-control-sm" type="text" onChange={handlerChangeID} placeholder="Enter Product ID" required />
+                <button className="btn btn-outline-success btn-sm btn-order" onSubmit={handlerSubmitDistribute}>Distribute</button>
             </form>
             <hr />
             <br />
-            <h5><b>Step 4: Retail</b>(Only a registered Retailer can perform this step):-</h5>
+            <h5><b>Step 4: Retail</b></h5>
             <form onSubmit={handlerSubmitRetail}>
-                <input className="form-control-sm" type="text" onChange={handlerChangeID} placeholder="Enter Medicine ID" required />
-                <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitRetail}>Retail</button>
+                <input className="form-control-sm" type="text" onChange={handlerChangeID} placeholder="Enter Product ID" required />
+                <button className="btn btn-outline-success btn-sm btn-order" onSubmit={handlerSubmitRetail}>Retail</button>
             </form>
             <hr />
             <br />
-            <h5><b>Step 5: Mark as sold</b>(Only a registered Retailer can perform this step):-</h5>
+            <h5><b>Step 5: Mark as sold</b></h5>
             <form onSubmit={handlerSubmitSold}>
-                <input className="form-control-sm" type="text" onChange={handlerChangeID} placeholder="Enter Medicine ID" required />
-                <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitSold}>Sold</button>
+                <input className="form-control-sm" type="text" onChange={handlerChangeID} placeholder="Enter Product ID" required />
+                <button className="btn btn-outline-success btn-sm btn-order" onSubmit={handlerSubmitSold}>Sold</button>
             </form>
             <hr />
         </div>
